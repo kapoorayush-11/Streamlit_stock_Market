@@ -2,14 +2,12 @@ import streamlit as st
 import datetime
 import yfinance as yf
 
-
-st.write("""
-   #Stock Price Analyser """)
+st.title("**Stock Price Analyser**")
 
 ## Get data for Apple Stock
 symbol  = st.selectbox(
     'Which Stock Symbol you want to analyze',
-    ('AAPL', 'GOOG', 'MTSLA', 'MSFT', 'NFLX'))
+    ('AAPL', 'GOOG', 'TSLA', 'MSFT', 'NFLX'))
 
 col1, col2 = st.columns(2)
 
@@ -23,19 +21,19 @@ with col2:
 ticker_data = yf.Ticker(symbol)
 ticker_df = ticker_data.history(period="1d", start=start_date, end=end_date)
 
-st.write("""
-   Apple's Stock Price Data      
+st.write(f"""
+   {symbol} Stock Price Data      
          """);
 
 st.dataframe(ticker_df)
 
 
-st.write("""
-   Apple's Closing price Chart   """);
+st.write(f"""
+   {symbol} Closing price Chart   """);
 
 st.line_chart(ticker_df["Close"])
 
-st.write("""
-   Apple's Volume price Chart   """);
+st.write(f"""
+   {symbol} Volume price Chart   """);
 
 st.line_chart(ticker_df["Volume"])
