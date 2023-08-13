@@ -7,7 +7,7 @@ st.title("**Stock Price Analyser**")
 ## Get data for Apple Stock
 symbol  = st.selectbox(
     'Which Stock Symbol you want to analyze',
-    ('AAPL', 'GOOG', 'TSLA', 'MSFT', 'NFLX'))
+    ('AAPL','ADBE','ADP', 'GOOG', 'EBAY', 'TSLA', 'MSFT', 'NFLX'))
 
 col1, col2 = st.columns(2)
 
